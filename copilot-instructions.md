@@ -14,7 +14,7 @@ These instructions govern code generation, refactoring, and explanations. Always
 - Avoid deprecated libraries (e.g., use `fetch` or `axios` instead of `request`).
 
 ## 3. NEXT.JS
-- Use Next.js built-in middleware (via `middleware.ts` in the root or `src` directory) or custom middleware for authentication and route protection.
+- Use Next.js built-in middleware (via `middleware.ts` in the root or `src` directory) or custom middleware for authentication and route protection. If `middleware.ts` is missing or misconfigured, log an error and provide a default authentication mechanism.
 - For API routes, always validate and sanitize input to prevent security vulnerabilities.
 - For API routes that deal with Supabase use RLS (Row Level Security) pass-through to ensure that database queries respect user permissions.
 - For API routes that handle external API calls, ensure the request is authenticated using a requiredUser() function.
@@ -25,3 +25,4 @@ These instructions govern code generation, refactoring, and explanations. Always
 - For dynamic routes, ensure that you handle edge cases such as missing parameters or invalid IDs gracefully, returning appropriate error messages or fallback content.
 - When using Next.js API routes, ensure that you handle CORS properly if the API will be accessed from a different origin. Use the `cors` middleware or set appropriate headers to allow cross-origin requests when necessary.
 - When creating the theme, ensure the color contrast meets accessibility standards (WCAG 2.1 AA) to ensure that the application is usable by people with visual impairments. Use tools like the WebAIM Contrast Checker to verify that text and background color combinations provide sufficient contrast.  
+- Use tailwindcss and shadcn/ui for styling, and ensure that all components are responsive and accessible. Avoid using inline styles or custom CSS unless absolutely necessary, and prefer utility classes for consistency and maintainability.
